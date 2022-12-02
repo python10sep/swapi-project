@@ -1,4 +1,4 @@
-from base import ResourceBase
+from resources.base import ResourceBase
 from utils.fetch_data import hit_url
 
 
@@ -10,9 +10,19 @@ class Characters(ResourceBase):
     def __init__(self):
         super().__init__()
         self.__relative_url = "api/people"  # plural
-        self.__character_range = [1, 82] # TODO implement setter method
+        self.__character_range = [1, 82]
 
-    # TODO implement getter method to get and set "__character_range" from class
+    @property
+    def relative_url(self):
+        return self.__relative_url
+
+    @property
+    def character_range(self):
+        return self.__character_range
+
+    @character_range.setter
+    def character_range(self, new_range_):
+        self.__character_range = new_range_
 
     def get_count(self):
         plural_character_url = self.home_url + self.relative_url
@@ -21,5 +31,4 @@ class Characters(ResourceBase):
         return result.get("count")
 
     def get_resource_urls(self, resource):
-        # TODO - implement this method similar to above
-        pass
+        return self.home_url + self.relative_url

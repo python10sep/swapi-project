@@ -1,6 +1,7 @@
 import requests
 import logging
-from typing import List
+from typing import List, Optional
+from requests.models import Response
 
 from requests import HTTPError
 
@@ -27,7 +28,7 @@ def mylogger(func):
 
 
 @mylogger
-def hit_url(url):
+def hit_url(url: str) -> Optional[Response]:
 
     response = requests.get(url)
     if response.status_code != 200:
