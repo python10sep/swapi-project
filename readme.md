@@ -4,7 +4,7 @@
 - Step 3: fetch data from URLs in step 2
 - step 4: pull out names from each of the output from step 3
 
-# etup
+# Setup
 
 ## Create virtualenv
 ```
