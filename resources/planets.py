@@ -27,10 +27,10 @@ class Planet(ResourceBase):
         return count
 
 
-
-
 if __name__ == "__main__":
     p = Planet()
     url = p.relative_url
     print(url)
+    planet_count = p.get_count()
+    print(planet_count)
 
