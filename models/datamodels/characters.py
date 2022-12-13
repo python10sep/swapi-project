@@ -5,10 +5,10 @@
 from pydantic import BaseModel
 from models.basemodel import Base
 
-from typing import List, str, Optional
+from typing import List, Optional
 
 
-class Character(Base):
+class Character_(Base):
     name: str
     height: str
     mass: str

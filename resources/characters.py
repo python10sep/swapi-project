@@ -32,3 +32,9 @@ class Characters(ResourceBase):
 
     def get_resource_urls(self, resource):
         return self.home_url + self.relative_url
+
+    def get_sample_data(self):
+        complete_url = self.home_url + self.__relative_url + "/1"
+        response = hit_url(complete_url)
+        data = response.json()
+        return data

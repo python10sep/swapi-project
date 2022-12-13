@@ -2,14 +2,14 @@ from resources.base import ResourceBase
 from utils.fetch_data import hit_url
 
 
-class Planet(ResourceBase):
+class Species(ResourceBase):
     """
     Planet class related functionality
     """
 
     def __init__(self) -> None:
         super().__init__()
-        self.__relative_url = "/api/planets"
+        self.__relative_url = "/api/species"
 
     @property
     def relative_url(self):
@@ -34,7 +34,7 @@ class Planet(ResourceBase):
 
 
 if __name__ == "__main__":
-    p = Planet()
+    p = Species()
     url = p.relative_url
     print(url)
     planet_count = p.get_count()

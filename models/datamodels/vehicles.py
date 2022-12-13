@@ -7,7 +7,7 @@ from typing import List, Optional
 from models.basemodel import Base
 
 
-class Vehicle(Base):
+class Vehicle_(Base):
     """ Pydantic model class meant to validate the data for `Vehicle` object from
         single resource endpoint from starwars API.
     """

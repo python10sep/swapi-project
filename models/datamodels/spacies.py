@@ -8,7 +8,7 @@ from decimal import Decimal
 from models.basemodel import Base
 
 
-class Species(Base):
+class Species_(Base):
     """ Pydantic model class meant to validate the data for `Species` object from
         single resource endpoint from starwars API.
     """

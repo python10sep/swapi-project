@@ -3,7 +3,7 @@ from models.basemodel import Base
 from typing import Optional, List
 
 
-class Film(Base):
+class Film_(Base):
     title: str
     episode_id: str
     opening_crawl: str
