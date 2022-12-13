@@ -20,11 +20,17 @@ class Film(ResourceBase):
         self.__relative_url = new_url_
 
     def get_count(self):
-        complete_url = self.home_url + self.__relative_url
+        complete_url = self.home_url + self.relative_url
         response = hit_url(complete_url)
         data = response.json()
         count = data.get("count")
         return count
+
+    def get_sample_data(self, id_=1):
+        complete_url = self.home_url + self.relative_url + f"/{id_}"
+        response = hit_url(complete_url)
+        data = response.json()
+        return data
 
 
 if __name__ == "__main__":
