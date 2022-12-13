@@ -34,8 +34,6 @@ if __name__ == "__main__":
     film_data = Film().get_sample_data()
     film_data = Film_(**film_data)
 
-    breakpoint()
-
     vehicle_data = Vehicle().get_sample_data()
     vehicle_data = Vehicle_(**vehicle_data)
 
