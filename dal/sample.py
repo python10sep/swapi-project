@@ -67,7 +67,6 @@ def insert_resource(
     with get_db_conn() as conn:
         cursor = conn.cursor()
         sql_magic = f"""insert into starwarsDB.{table_name} ({primary_key_}, {column_names}) values ({primary_value}, {value_fields});"""
-        breakpoint()
 
         result = cursor.execute(sql_magic)
         conn.commit()
