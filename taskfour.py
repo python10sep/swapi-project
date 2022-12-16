@@ -2,7 +2,7 @@
 
 TODO
 
-1. pull data for the movie "A New Hope"
+1. pull data for the movie "A New Hope" and save in DB
 
 2. Replace the data for each of the endpoint listed in the JSON object
  and insert that data into respective database tables
@@ -56,7 +56,10 @@ if __name__ == "__main__":
                    film_data.edited.strftime("YYYY-MM-DD"),
                    film_data.url]
 
-    result = insert_resource("film", "film_id", film_data.episode_id, film_columns, film_values)
+    result = insert_resource(
+        "film", "film_id", film_data.episode_id,
+        film_columns, film_values
+    )
 
 
 

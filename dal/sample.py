@@ -41,12 +41,24 @@ def get_db_conn():
 
 
 def insert_resource(
-        table_name,
+        table_name: str,
         primary_key_: str,
         primary_value: int,
         columns_: List,
         values: List
 ):
+    """
+
+    Args:
+        table_name (str):
+        primary_key_ (str):
+        primary_value (int):
+        columns_ (list):
+        values (list):
+
+    Returns:
+        number of records inserted in DB table
+    """
 
     column_names = ", ".join(columns_)
     value_fields = ", ".join(values)
@@ -67,7 +79,6 @@ def insert_resource(
     with get_db_conn() as conn:
         cursor = conn.cursor()
         sql_magic = f"""insert into starwarsDB.{table_name} ({primary_key_}, {column_names}) values ({primary_value}, {value_fields});"""
-
         result = cursor.execute(sql_magic)
         conn.commit()
     return result
