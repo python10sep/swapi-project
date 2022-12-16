@@ -2,7 +2,7 @@
 
 """
 
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from models.basemodel import Base
 
 from typing import List, Optional
@@ -23,3 +23,13 @@ class Character_(Base):
     starships: Optional[List[str]]
     films: Optional[List[str]]
     vehicles: Optional[List[str]]
+
+    @validator("height")
+    def height_validation(cls):
+        if isinstance(cls.height, str):
+            height = int(cls.height)
+            height = height / 100
+            cls.height = height
+            return cls.height
+        else:
+            raise ValueError('height cannot be converted')
