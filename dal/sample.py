@@ -12,32 +12,30 @@ SHOW GRANTS FOR adam;
 
 """
 
+import yaml
+import toml
 import pymysql
 from typing import List
 
 
-# connection to database
-connection = pymysql.connect(
-    host='localhost',
-    user='adam',
-    password='qwerty@123',
-    database='starwarsDB'
- )
-
-cursor = connection.cursor()
-sql = "select * from starwarsDB.species_sample;"
-result = cursor.execute(sql)
-
-
 def get_db_conn():
-    # connection to database
-    connection_ = pymysql.connect(
-        host='localhost',
-        user='adam',
-        password='qwerty@123',
-        database='starwarsDB'
-    )
-    return connection_
+
+    filepath = "settings/secrets.yaml"
+    with open(filepath, "r") as foo:
+        doc = yaml.load(foo, Loader=yaml.FullLoader)
+        connection_ = pymysql.connect(**doc)
+        return connection_
+
+
+def get_db_conn_toml():
+
+    toml_path = "settings/secrets.toml"
+
+    with open(toml_path, "r") as foo:
+        config = toml.load(foo)
+        dbconfig = config.get("mysqldb")
+        connection_ = pymysql.connect(**dbconfig)
+        return connection_
 
 
 def insert_resource(
@@ -82,4 +80,9 @@ def insert_resource(
         result = cursor.execute(sql_magic)
         conn.commit()
     return result
+
+
+if __name__ == "__main__":
+    yaml_conn = get_db_conn()
+    toml_conn = get_db_conn_toml()
 
