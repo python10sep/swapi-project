@@ -37,7 +37,7 @@ from resources.vehicles import Vehicle
 from resources.species import Species
 from resources.spaceships import Spaceship
 
-from dal.sample import insert_resource
+from dal.db_conn_helper import insert_resource
 
 
 if __name__ == "__main__":
