@@ -1,4 +1,3 @@
-
 from models.basemodel import Base
 from typing import Optional, List
 
@@ -44,12 +43,12 @@ if __name__ == "__main__":
             "https://swapi.dev/api/people/16/",
             "https://swapi.dev/api/people/18/",
             "https://swapi.dev/api/people/19/",
-            "https://swapi.dev/api/people/81/"
+            "https://swapi.dev/api/people/81/",
         ],
         "planets": [
             "https://swapi.dev/api/planets/1/",
             "https://swapi.dev/api/planets/2/",
-            "https://swapi.dev/api/planets/3/"
+            "https://swapi.dev/api/planets/3/",
         ],
         "starships": [
             "https://swapi.dev/api/starships/2/",
@@ -59,25 +58,27 @@ if __name__ == "__main__":
             "https://swapi.dev/api/starships/10/",
             "https://swapi.dev/api/starships/11/",
             "https://swapi.dev/api/starships/12/",
-            "https://swapi.dev/api/starships/13/"
+            "https://swapi.dev/api/starships/13/",
         ],
         "vehicles": [
             "https://swapi.dev/api/vehicles/4/",
             "https://swapi.dev/api/vehicles/6/",
             "https://swapi.dev/api/vehicles/7/",
-            "https://swapi.dev/api/vehicles/8/"
+            "https://swapi.dev/api/vehicles/8/",
         ],
         "species": [
             "https://swapi.dev/api/species/1/",
             "https://swapi.dev/api/species/2/",
             "https://swapi.dev/api/species/3/",
             "https://swapi.dev/api/species/4/",
-            "https://swapi.dev/api/species/5/"
+            "https://swapi.dev/api/species/5/",
         ],
         "created": "2014-12-10T14:23:31.880000Z",
         "edited": "2014-12-20T19:49:45.256000Z",
-        "url": "https://swapi.dev/api/films/1/"
+        "url": "https://swapi.dev/api/films/1/",
     }
     obj = Film(**data)
 
-    import pdb; pdb.set_trace()
+    import pdb
+
+    pdb.set_trace()

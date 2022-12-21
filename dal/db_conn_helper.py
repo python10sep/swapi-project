@@ -37,7 +37,7 @@ def _load_from_file(filename):
     if not os.path.exists(filename):
         return
 
-    with open(filename, 'r') as f:
+    with open(filename, "r") as f:
         doc = yaml.load(f, Loader=yaml.FullLoader)
 
     if not doc:
@@ -69,12 +69,12 @@ def _load():
 
     global _settings
 
-    env_filename = _abs_path('settings/secrets.yaml')
+    env_filename = _abs_path("settings/secrets.yaml")
     _load_from_file(env_filename)
 
 
 def get_db_conn() -> Connection:
-    """ Assembles connection object to the SQL database.
+    """Assembles connection object to the SQL database.
     Returns:
         Connection:  connection object to the SQL database.
     """
@@ -88,13 +88,15 @@ def get_db_conn() -> Connection:
     sql_port = _settings.get("LOCALSQL_PORT")
     sql_db = _settings.get("LOCALSQL_DATABASE")
 
-    connection = pymysql.connect(host=sql_host,
-                                 user=sql_username,
-                                 password=sql_password,
-                                 db=sql_db,
-                                 port=sql_port,
-                                 charset='utf8mb4',
-                                 cursorclass=pymysql.cursors.DictCursor)
+    connection = pymysql.connect(
+        host=sql_host,
+        user=sql_username,
+        password=sql_password,
+        db=sql_db,
+        port=sql_port,
+        charset="utf8mb4",
+        cursorclass=pymysql.cursors.DictCursor,
+    )
 
     return connection
 
@@ -110,51 +112,6 @@ def get_db_conn_toml():
         return connection_
 
 
-def insert_resource(
-        table_name: str,
-        primary_key_: str,
-        primary_value: int,
-        columns_: List,
-        values: List
-):
-    """
-
-    Args:
-        table_name (str):
-        primary_key_ (str):
-        primary_value (int):
-        columns_ (list):
-        values (list):
-
-    Returns:
-        number of records inserted in DB table
-    """
-
-    column_names = ", ".join(columns_)
-    value_fields = ", ".join(values)
-
-    column_names.rstrip(", ")
-    value_fields.rstrip(", ")
-
-    value_fields = ""
-    for value in values:
-        if isinstance(value, str):
-            value_fields = value_fields + '''"''' + value + '''"''' + ''', '''
-        elif isinstance(value, int):
-            value_fields = value_fields + str(value) + ''','''
-
-    value_fields = value_fields.rstrip(""", """)
-
-    result = None
-    with get_db_conn() as conn:
-        cursor = conn.cursor()
-        sql_magic = f"""insert into starwarsDB.{table_name} ({primary_key_}, {column_names}) values ({primary_value}, {value_fields});"""
-        result = cursor.execute(sql_magic)
-        conn.commit()
-    return result
-
-
 if __name__ == "__main__":
     yaml_conn = get_db_conn()
     toml_conn = get_db_conn_toml()
-

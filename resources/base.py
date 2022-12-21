@@ -32,5 +32,3 @@ class ResourceBase(object):
 
     def get_sample_data(self):
         raise SampleDataException(not_implemented_error_msg)
-
-

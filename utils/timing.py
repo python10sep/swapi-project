@@ -8,4 +8,5 @@ def timeit(func):
         end = time.time() - start
         print(f"total time to execute - {end}")
         return result
+
     return wrapper

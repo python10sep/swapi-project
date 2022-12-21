@@ -9,8 +9,8 @@ from models.basemodel import Base
 
 
 class Species_(Base):
-    """ Pydantic model class meant to validate the data for `Species` object from
-        single resource endpoint from starwars API.
+    """Pydantic model class meant to validate the data for `Species` object from
+    single resource endpoint from starwars API.
     """
 
     # attribute fields

@@ -18,6 +18,7 @@ def timeit(func):
         # post-processing
         print(f"[ INFO ] time to execute - {time.time() - start}")
         return result
+
     return wrapper
 
 
@@ -45,4 +46,3 @@ if __name__ == "__main__":
     characters_ = produce_chars()
     final = fetch_data(characters_)
     print(final)
-

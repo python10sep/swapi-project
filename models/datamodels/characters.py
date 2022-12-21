@@ -51,25 +51,23 @@ if __name__ == "__main__":
             "https://swapi.dev/api/films/6/",
             "https://swapi.dev/api/films/3/",
             "https://swapi.dev/api/films/1/",
-            "https://swapi.dev/api/films/7/"
+            "https://swapi.dev/api/films/7/",
         ],
-        "species": [
-            "https://swapi.dev/api/species/1/"
-        ],
+        "species": ["https://swapi.dev/api/species/1/"],
         "vehicles": [
             "https://swapi.dev/api/vehicles/14/",
-            "https://swapi.dev/api/vehicles/30/"
+            "https://swapi.dev/api/vehicles/30/",
         ],
         "starships": [
             "https://swapi.dev/api/starships/12/",
-            "https://swapi.dev/api/starships/22/"
+            "https://swapi.dev/api/starships/22/",
         ],
         "created": "2014-12-09T13:50:51.644000Z",
         "edited": "2014-12-20T21:17:56.891000Z",
-        "url": "https://swapi.dev/api/people/1/"
+        "url": "https://swapi.dev/api/people/1/",
     }
 
-    from pprint  import pprint
+    from pprint import pprint
 
     char = Character_(**data)
     pprint(char)
@@ -77,4 +75,3 @@ if __name__ == "__main__":
     #     print(i)
 
     pprint(dict(char))
-

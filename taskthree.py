@@ -45,7 +45,3 @@ if __name__ == "__main__":
 
     species_data = Species().get_sample_data()
     species_data = Species_.get_sample_data()
-
-
-
-

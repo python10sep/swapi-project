@@ -7,11 +7,7 @@ from requests import HTTPError
 
 
 # logging configuration
-logging.basicConfig(
-    filename='utils/example.log',
-    encoding='utf-8',
-    level=logging.INFO
-)
+logging.basicConfig(filename="utils/example.log", encoding="utf-8", level=logging.INFO)
 
 
 def mylogger(func):
@@ -24,6 +20,7 @@ def mylogger(func):
             logging.error(f"there are issues fetching details")
 
         return result_
+
     return wrapper
 
 
@@ -35,6 +32,7 @@ def hit_url(url: str) -> Optional[Response]:
         response.raise_for_status()
     else:
         return response
+
 
 # TODO - try with following function as well.
 

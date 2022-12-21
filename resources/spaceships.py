@@ -39,4 +39,3 @@ if __name__ == "__main__":
     print(url)
     planet_count = p.get_count()
     print(planet_count)
-
